@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="dark">
     <title>Portfolio | Nayas AHAMEDSAH</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -12,7 +11,7 @@
             --card-bg: #1e293b;
             --accent-blue: #38bdf8;
             --accent-purple: #c084fc; /* Violet plus clair pour lisibilité */
-            --accent-green-dark: #10b981; /* Vert plus vif pour lisibilité */
+            --accent-green-dark: #00bc00;
             --text-main: #f1f5f9;
             --text-dim: #94a3b8;
         }
@@ -24,6 +23,7 @@
             color: var(--text-main);
             line-height: 1.6;
             scroll-behavior: smooth;
+            color-scheme: only light;
         }
 
         /* NAVIGATION */
@@ -54,7 +54,7 @@
         }
         h1 { font-size: 3.5rem; margin-bottom: 0.5rem; background: linear-gradient(to right, var(--accent-blue), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .subtitle { font-size: 1.2rem; color: var(--text-dim); margin-bottom: 1rem; }
-        .alternance-tag { background: var(--accent-green-dark); color: white; padding: 6px 18px; border-radius: 20px; font-weight: bold; font-size: 0.9rem; margin-bottom: 2rem; }
+        .alternance-tag { background: #009900; color: white; padding: 6px 18px; border-radius: 20px; font-weight: bold; font-size: 0.9rem; margin-bottom: 2rem; }
 
         /* SECTIONS */
         section { padding: 5rem 10%; max-width: 1200px; margin: auto; }
@@ -112,7 +112,7 @@
         /* FOOTER ET CONTACT */
         footer { background: #070b14; padding: 4rem 10%; text-align: center; }
         .btn-contact {
-            background: linear-gradient(to right, var(--accent-blue), var(--accent-purple));
+            background: linear-gradient(to right, #1e90d4, #a855f7);
             color: white; padding: 12px 30px; border-radius: 30px;
             text-decoration: none; display: inline-block; margin-top: 1rem; font-weight: bold;
         }
@@ -124,6 +124,13 @@
             h1 { font-size: 2.5rem; }
             nav { gap: 0.8rem; padding: 0.8rem; }
             nav a { font-size: 0.75rem; }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: var(--bg-dark);
+                color: var(--text-main);
+            }
         }
     </style>
 </head>
@@ -160,7 +167,7 @@
                 <div>
                     <h3><i class="fas fa-graduation-cap" style="color:var(--accent-green-dark)"></i> Mes Objectifs</h3>
                     <p><strong>Court terme :</strong> Intégrer une alternance afin de développer mes compétences en programmation et découvrir le travail en équipe sur des projets réels.</p>
-                    <p style="margin-top:10px;"><strong> Long terme :</strong> Poursuivre mes études vers un Master ou un diplôme d'ingénieur afin de devenir un expert dans la création d'applications.</p>
+                    <p style="margin-top:10px;"><strong> Long terme :</strong> Poursuivre mes études vers un Master ou un diplôme d'ingénieur afin de devenir un expert en ingénieurie logicielle.</p>
                 </div>
             </div>
         </div>
@@ -172,12 +179,14 @@
             <div class="card">
                 <h3>Techniques & Outils</h3>
                 <div style="margin-top: 1rem;">
-                    <div class="skill-tag">Python & Algorithmique</div>
-                    <div class="skill-tag">HTML5 / CSS3 / Github</div>
-                    <div class="skill-tag">SQL (Bases de données)</div>
-                    <div class="skill-tag">Linux / Ubuntu / Bash</div>
+                    <div class="skill-tag">Python, Java</div>
+                    <div class="skill-tag">HTML5 / CSS3</div>
+                    <div class="skill-tag">SQL (phpMyAdmin)</div>
+                    <div class="skill-tag">Linux (Ubuntu, Bash)</div>
+                    <div class="skill-tag">VS Code, Eclipse</div>
+                    <div class="skill-tag">GitHub</div>
+                    <div class="skill-tag">Figma</div>
                     <div class="skill-tag">IA</div>
-                    <div class="skill-tag">Thonny / VS Code</div>
                 </div>
             </div>
             <div class="card">
@@ -197,11 +206,11 @@
         <div class="grid">
             <div class="card">
                 <div>
-                    <span class="role-badge">Projet de Groupe | Rôles : Dév, Persona, Questionnaire</span>
+                    <span class="role-badge">Projet de Groupe | Rôles : Front-end & UX Design</span>
                     <img src="images/projet_unesco.jpg" alt="Unesco" class="project-img">
                     <h3>Site Web Unesco</h3>
-                    <p>Création d'un site vitrine sur Chichén Itzá. Réalisation d'études des Personnas et d'un Questionnaire utilisateur.</p>
-                    <p class="tools-badge">Outils : HTML5 / CSS3, Figma, Canva, Google Forms</p>
+                    <p>Création d'un site vitrine sur Chichén Itzá. Intégration d'une partie des interfaces et conception de l'expérience utilisateur.</p>
+                    <p class="tools-badge">Outils : HTML5 / CSS3, Figma</p>
                 </div>
             </div>
 
@@ -217,11 +226,11 @@
 
             <div class="card project-centered">
                 <div>
-                    <span class="role-badge">Projet Individuel</span>
+                    <span class="role-badge">Projet Individuel | Conception SQL</span>
                     <img src="images/projet_BDD.jpg" alt="Base De Donnée" class="project-img">
                     <h3>Base de Données</h3>
-                    <p>Modélisation et mise en place d'un système d'information complet avec requêtes SQL.</p>
-                    <p class="tools-badge">Outils : Looping, PHPMyAdmin</p>
+                    <p>Modélisation complète (MCD/MLD) et création d'une base de donnée relationnelle avec requêtes SQL.</p>
+                    <p class="tools-badge">Outils : MySQL, Looping, PHPMyAdmin</p>
                 </div>
             </div>
         </div>
@@ -243,11 +252,10 @@
             </div>
 
             <div class="timeline-item">
-                <p class="timeline-date">2022 - 2023</p>
-                <p class="timeline-title">Bénévolat : Création de contenus vidéo</p>
-                <p class="timeline-desc">Réalisation et montage de vidéos thématiques. Gestion complète du processus créatif.</p>
-                <p class="timeline-title">Apprentissage : tuteur</p>
-                <p class="timeline-desc">Test 1212</p>
+                <p class="timeline-date">2022 - 2024</p>
+                <p class="timeline-title">Engagement Bénévole</p>
+                <p class="timeline-desc">TUTORAT : Animation de séances de soutien et pédagogie individuelle.</p>
+                <p class="timeline-desc">VIDÉO : Réalisation et montage de vidéos thématiques. Gestion complète du processus créatif.</p>
             </div>
 
             <div class="timeline-item">
@@ -258,14 +266,14 @@
         </div>
         
         <div style="margin-top: 30px;">
-            <a href="documents/cv_nayas.pdf" target="_blank" class="skill-tag" style="text-decoration:none"><i class="fas fa-file-pdf"></i> Mon CV (PDF)</a>
+            <a href="documents/CV_Nayas.pdf" target="_blank" class="skill-tag" style="text-decoration:none"><i class="fas fa-file-pdf"></i>&nbsp;Consultez mon CV</a>
         </div>
     </section>
 
     <footer id="contact">
         <h2>Collaborer ensemble ?</h2>
-        <p>Disponible pour une alternance en région parisienne (Villiers-sur-Marne)</p>
-        <p>Email : <strong>ahamedsah.nayas@gmail.com</strong></p>
+        <p>Disponible pour une alternance en Île-de-France</p>
+        <p>Secteur : Villiers-sur-Marne (94) & Paris / EST Parisien</p>
         <div style="margin: 20px 0;">
             <a href="mailto:ahamedsah.nayas@gmail.com" class="btn-contact">Envoyer un mail</a>
         </div>
