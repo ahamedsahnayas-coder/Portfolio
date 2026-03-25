@@ -38,8 +38,8 @@
             flex-wrap: wrap; 
             z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.1);
         }
-        nav a { color: var(--text-main); text-decoration: none; font-weight: 500; transition: 0.3s; font-size: 0.85rem; }
-        nav a:hover { color: var(--accent-blue); }
+        nav a { color: var(--text-main); text-decoration: none; font-weight: 500; transition: color 0.2s ease; font-size: 0.85rem; }
+        nav a:hover { color: #F59E0B; }
 
         /* PROFIL */
         header {
@@ -77,12 +77,12 @@
         
         .card {
             background: var(--card-bg); padding: 2rem; border-radius: 15px;
-            transition: transform 0.3s; border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.3s ease, border-color 0.2s ease; border: 1px solid rgba(255,255,255,0.05);
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
         }
-        .card:hover { transform: translateY(-10px); border-color: var(--accent-blue); }
+        .card:hover { transform: translateY(-10px); border-color: #F59E0B; }
 
         /* Centrage du 3ème projet */
         .project-centered {
@@ -97,6 +97,10 @@
             color: var(--accent-blue); padding: 5px 15px; border-radius: 20px;
             margin: 5px; font-size: 0.8rem; border: 1px solid var(--accent-blue);
         }
+        .skill-tag:hover {
+            box-shadow: 0 0 10px #F59E0B;
+            transition: all 0.2s ease;
+        }
 
         /* PROJETS */
         .project-img { width: 100%; border-radius: 10px; margin-bottom: 1rem; height: 200px; object-fit: cover; }
@@ -106,7 +110,7 @@
         /* TIMELINE */
         .timeline { border-left: 2px solid var(--accent-blue); padding-left: 20px; margin-left: 20px; }
         .timeline-item { margin-bottom: 2.5rem; position: relative; }
-        .timeline-item::before { content: ""; position: absolute; left: -27px; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent-blue); }
+        .timeline-item::before { content: ""; position: absolute; left: -27px; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: #F59E0B; }
         .timeline-date { color: var(--accent-blue); font-weight: bold; font-size: 0.9rem; }
         .timeline-title { font-weight: bold; font-size: 1.1rem; margin: 5px 0; }
         .timeline-desc { color: var(--text-dim); font-size: 0.9rem; }
@@ -114,9 +118,24 @@
         /* FOOTER ET CONTACT */
         footer { background: #070b14; padding: 4rem 10%; text-align: center; }
         .btn-contact {
-            background: linear-gradient(to right, #1e90d4, #a855f7);
-            color: white; padding: 12px 30px; border-radius: 30px;
+            background: #F59E0B;
+            color: #0f172a; padding: 12px 30px; border-radius: 30px;
             text-decoration: none; display: inline-block; margin-top: 1rem; font-weight: bold;
+        }
+        .btn-contact:hover {
+            background: #D97706;
+        }
+
+        /* Titres projets */
+        #projets h3 {
+            color: #25a7fe;
+        }
+
+        /* Bouton CV */
+        .cv-btn {
+            background: #F59E0B;
+            color: #0f172a;
+            border: none;
         }
 
         /* RESPONSIVE */
@@ -159,45 +178,49 @@
         <h2>À propos de moi</h2>
         <div class="grid-about">
             <div class="card">
-                <div>
-                    <h3><i class="fas fa-bullseye" style="color:var(--accent-purple)"></i> Profil</h3>
-                    <p>Étudiant en BUT Informatique, je m'intéresse particulièrement au développement web et à la création d'applications utiles et fonctionnelles.
-                    Je souhaite m'investir en entreprise afin de progresser techniquement et contribuer concrètement aux projets d'une équipe.</p>
+                <div class="card">
+                    <h3><i class="fas fa-bullseye" style="color:var(--accent-green-dark)"></i> Profil</h3>
+                    <ul>
+                        <li><strong>Formation :</strong> Étudiant en BUT Informatique</li>
+                        <li><strong>Spécialisation :</strong> Développement web et création d'applications fonctionnelles</li>
+                        <li><strong>Engagement :</strong> Prêt à s'investir et progresser au sein d'une équipe professionnelle</li>
+                    </ul>
                 </div>
             </div>
             <div class="card">
-                <div>
-                    <h3><i class="fas fa-graduation-cap" style="color:var(--accent-green-dark)"></i> Mes Objectifs</h3>
-                    <p><strong>Court terme :</strong> Intégrer une alternance afin de développer mes compétences en programmation et découvrir le travail en équipe sur des projets réels.</p>
-                    <p style="margin-top:10px;"><strong> Long terme :</strong> Poursuivre mes études vers un Master ou un diplôme d'ingénieur afin de devenir un expert en ingénieurie logicielle.</p>
+                <div class="card">
+                    <h3><i class="fas fa-graduation-cap" style="color:var(--accent-purple)"></i> Mes Objectifs</h3>
+                    <ul>
+                        <li><strong>Court terme :</strong> Intégrer une entreprise sur des projets réels</li>
+                        <li><strong>Long terme :</strong> Approfondir la programmation et le travail d'équipe</li>
+                        <li><strong>Vision :</strong> Poursuite en Master ou École d'Ingénieur pour devenir Expert en Ingénierie Logicielle</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="competences" style="background: rgba(255,255,255,0.02)">
-        <h2>Compétences & Savoir-faire</h2>
+    <section id="competences">
+        <h2>Compétences</h2>
         <div class="grid">
             <div class="card">
-                <h3>Techniques & Outils</h3>
+                <h3>Savoir-faire</h3>
                 <div style="margin-top: 1rem;">
-                    <div class="skill-tag">Python, Java</div>
-                    <div class="skill-tag">HTML5 / CSS3</div>
-                    <div class="skill-tag">SQL (phpMyAdmin)</div>
-                    <div class="skill-tag">Linux (Ubuntu, Bash)</div>
-                    <div class="skill-tag">VS Code, Eclipse</div>
-                    <div class="skill-tag">GitHub</div>
-                    <div class="skill-tag">Figma</div>
-                    <div class="skill-tag">IA</div>
+                    <div class="skill-tag">Développement Web - HTML5 & CSS3 / VS Code & GitHub</div>
+                    <div class="skill-tag">Programmation - Python | C & Java (Notions) / VS Code & Eclipse</div>
+                    <div class="skill-tag">Bases de donnée - SQL / MySQL & phpMyAdmin</div>
+                    <div class="skill-tag">Bases Réseaux & Systèmes - Ubuntu & Bash / Netkit & DHCP</div>
+                    <div class="skill-tag">Gestion de Projet - Collaboration / IA</div>
                 </div>
             </div>
             <div class="card">
-                <h3>Soft Skills & Gestion</h3>
-                <ul style="list-style: none; margin-top: 1rem;">
+                <h3>Savoir-être</h3>
+                <ul style="list-style: none; margin-top: 1rem; display: flex; flex-direction: column; gap: 15px;">
+                    <li><i class="fas fa-chalkboard-teacher" style="color:var(--accent-green-dark)"></i> Pédagogie</li>
+                    <li><i class="fas fa-tasks" style="color:var(--accent-green-dark)"></i> Organisation</li>
+                    <li><i class="fas fa-sync-alt" style="color:var(--accent-green-dark)"></i> Adaptabilité</li>
                     <li><i class="fas fa-users" style="color:var(--accent-green-dark)"></i> Travail d'équipe</li>
-                    <li><i class="fas fa-tasks" style="color:var(--accent-green-dark)"></i> Gestion de projet</li>
-                    <li><i class="fas fa-language" style="color:var(--accent-green-dark)"></i> Anglais technique</li>
-                    <li><i class="fas fa-heart" style="color:var(--accent-green-dark)"></i> Engagement bénévole</li>
+                    <li><i class="fas fa-lightbulb" style="color:var(--accent-green-dark)"></i> Curiosité</li>
                 </ul>
             </div>
         </div>
@@ -208,7 +231,7 @@
         <div class="grid">
             <div class="card">
                 <div>
-                    <span class="role-badge">Projet de Groupe | Rôles : Front-end & UX Design</span>
+                    <span class="role-badge">Projet de Groupe | Rôles : UI/UX Design & Front-end</span>
                     <img src="images/projet_unesco.jpg" alt="Unesco" class="project-img">
                     <h3>Site Web Unesco</h3>
                     <p>Création d'un site vitrine sur Chichén Itzá. Intégration d'une partie des interfaces et conception de l'expérience utilisateur.</p>
@@ -228,10 +251,10 @@
 
             <div class="card project-centered">
                 <div>
-                    <span class="role-badge">Projet Individuel | Conception SQL</span>
+                    <span class="role-badge">Projet de Groupe | Rôles : Modélisation & SQL</span>
                     <img src="images/projet_BDD.jpg" alt="Base De Donnée" class="project-img">
                     <h3>Base de Données</h3>
-                    <p>Modélisation complète (MCD/MLD) et création d'une base de donnée relationnelle avec requêtes SQL.</p>
+                    <p>Modélisation complète du MCD/MLD et validation des scripts SQL sous MySQL.</p>
                     <p class="tools-badge">Outils : MySQL, Looping, PHPMyAdmin</p>
                 </div>
             </div>
@@ -254,10 +277,15 @@
             </div>
 
             <div class="timeline-item">
-                <p class="timeline-date">2022 - 2024</p>
-                <p class="timeline-title">Engagement Bénévole</p>
-                <p class="timeline-desc">TUTORAT : Animation de séances de soutien et pédagogie individuelle.</p>
-                <p class="timeline-desc">VIDÉO : Réalisation et montage de vidéos thématiques. Gestion complète du processus créatif.</p>
+                <p class="timeline-date">2023 - 2024</p>
+                <p class="timeline-title">Tutorat</p>
+                <p class="timeline-desc">Animation de séances de soutien et pédagogie individuelle.</p>
+            </div>
+
+            <div class="timeline-item">
+                <p class="timeline-date">2020 - 2023</p>
+                <p class="timeline-title">Monteur vidéo</p>
+                <p class="timeline-desc">Réalisation de contenus éducatifs et visuels | Collaboration sur la sélection des sujets.</p>
             </div>
 
             <div class="timeline-item">
@@ -268,7 +296,7 @@
         </div>
         
         <div style="margin-top: 30px;">
-            <a href="documents/CV_Nayas.pdf" target="_blank" class="skill-tag" style="text-decoration:none"><i class="fas fa-file-pdf"></i>&nbsp;Consultez mon CV</a>
+            <a href="documents/CV_Nayas.pdf" target="_blank" class="skill-tag cv-btn" style="text-decoration:none"><i class="fas fa-file-pdf"></i>&nbsp;Consultez mon CV</a>
         </div>
     </section>
 
