@@ -1,314 +1,942 @@
 <!DOCTYPE html>
-<html lang="fr" style="background-color: #0f172a;">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="only light">
     <title>Portfolio | Nayas AHAMEDSAH</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
+        /* ============================
+           VARIABLES & RESET
+        ============================ */
         :root {
-            --bg-dark: #0f172a;
-            --card-bg: #1e293b;
-            --accent-blue: #38bdf8;
-            --accent-purple: #c084fc; /* Violet plus clair pour lisibilité */
-            --accent-green-dark: #00bc00;
-            --text-main: #f1f5f9;
-            --text-dim: #94a3b8;
-            color-scheme: only light;
+            --bg:        #080f1e;
+            --bg-card:   #0e1a2e;
+            --bg-card2:  #111e35;
+            --border:    rgba(99, 163, 255, 0.12);
+            --border-hover: rgba(99, 163, 255, 0.35);
+
+            --blue:      #4fa8f5;
+            --blue-dark: #1d6fc4;
+            --teal:      #38d9c0;
+            --violet:    #a78bfa;
+            --green:     #34d399;
+
+            --text:      #e8f0fe;
+            --text-muted:#7a9abf;
+
+            --radius:    14px;
+            --transition: 0.25s ease;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
+        *, *::before, *::after {
+            margin: 0; padding: 0; box-sizing: border-box;
+        }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-            color-scheme: only light;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.65;
+            font-size: 16px;
         }
 
-        /* NAVIGATION */
+        /* ============================
+           BACKGROUND DOTS
+        ============================ */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: radial-gradient(rgba(79, 168, 245, 0.06) 1px, transparent 1px);
+            background-size: 28px 28px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ============================
+           NAVIGATION
+        ============================ */
         nav {
-            position: fixed; width: 100%; padding: 1rem;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-            display: flex; justify-content: center; 
-            gap: 1.5rem;
-            flex-wrap: wrap; 
-            z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.1);
+            position: fixed;
+            top: 0; width: 100%;
+            z-index: 100;
+            padding: 0.85rem 2rem;
+            background: rgba(8, 15, 30, 0.88);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
         }
-        nav a { color: var(--text-main); text-decoration: none; font-weight: 500; transition: color 0.2s ease; font-size: 0.85rem; }
-        nav a:hover { color: #F59E0B; }
 
-        /* PROFIL */
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: color var(--transition);
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px; left: 0;
+            width: 0; height: 2px;
+            background: var(--blue);
+            border-radius: 2px;
+            transition: width var(--transition);
+        }
+
+        nav a:hover { color: var(--blue); }
+        nav a:hover::after { width: 100%; }
+
+        /* ============================
+           HEADER
+        ============================ */
         header {
-            height: 100vh; display: flex; align-items: center; justify-content: center;
-            flex-direction: column; text-align: center;
-            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
-            padding: 0 20px;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 100px 20px 60px;
+            overflow: hidden;
         }
+
+        /* glow orbs */
+        header::before {
+            content: '';
+            position: absolute;
+            width: 600px; height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(29, 111, 196, 0.18) 0%, transparent 70%);
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
         .profile-img {
-            width: 180px; height: 180px; border-radius: 50%;
-            border: 4px solid var(--accent-blue);
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
-            margin-bottom: 1.5rem; object-fit: cover;
-        }
-        h1 { font-size: 3.5rem; margin-bottom: 0.5rem; background: linear-gradient(to right, var(--accent-blue), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .subtitle { font-size: 1.2rem; color: var(--text-dim); margin-bottom: 1rem; }
-        .alternance-tag { background: #009900; color: white; padding: 6px 18px; border-radius: 20px; font-weight: bold; font-size: 0.9rem; margin-bottom: 2rem; }
-
-        /* SECTIONS */
-        section { padding: 5rem 10%; max-width: 1200px; margin: auto; }
-        h2 { font-size: 2.5rem; margin-bottom: 3rem; border-left: 5px solid var(--accent-blue); padding-left: 15px; }
-
-        .grid { 
-            display: grid; 
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem; 
+            width: 160px; height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--blue);
+            box-shadow: 0 0 0 6px rgba(79, 168, 245, 0.12), 0 8px 32px rgba(0,0,0,0.5);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
         }
 
-        /* Section À propos élargie (2 colonnes au lieu de 3) */
+        h1 {
+            font-size: clamp(2.4rem, 6vw, 3.8rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #ffffff 30%, var(--violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative; z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 1.2rem;
+            position: relative; z-index: 1;
+        }
+
+        .alternance-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(52, 211, 153, 0.1);
+            border: 1px solid rgba(52, 211, 153, 0.35);
+            color: var(--green);
+            padding: 7px 20px;
+            border-radius: 30px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            position: relative; z-index: 1;
+        }
+
+        .alternance-tag::before {
+            content: '';
+            width: 7px; height: 7px;
+            border-radius: 50%;
+            background: var(--green);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.3); }
+        }
+
+        .btn-contact {
+            display: inline-block;
+            background: var(--blue);
+            color: #080f1e;
+            padding: 12px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+            position: relative; z-index: 1;
+        }
+
+        .btn-contact:hover {
+            background: #72bcff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(79, 168, 245, 0.35);
+        }
+
+        /* ============================
+           SECTIONS
+        ============================ */
+        section {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 5rem 5%;
+        }
+
+        h2 {
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text);
+        }
+
+        h2::before {
+            content: '';
+            display: block;
+            width: 4px; height: 1.6em;
+            background: linear-gradient(to bottom, var(--blue), var(--teal));
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        /* ============================
+           CARDS
+        ============================ */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.75rem;
+            transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-hover);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        /* ============================
+           À PROPOS
+        ============================ */
         .grid-about {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
+            gap: 1.5rem;
         }
-        
-        .card {
-            background: var(--card-bg); padding: 2rem; border-radius: 15px;
-            transition: transform 0.3s ease, border-color 0.2s ease; border: 1px solid rgba(255,255,255,0.05);
+
+        .grid-about ul {
+            list-style: none;
             display: flex;
             flex-direction: column;
+            gap: 0.75rem;
+            margin-top: 0.25rem;
+        }
+
+        .grid-about ul li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            padding-left: 0.9rem;
+            border-left: 2px solid var(--border);
+            line-height: 1.5;
+        }
+
+        .grid-about ul li strong {
+            color: var(--text);
+        }
+
+        /* ============================
+           COMPÉTENCES
+        ============================ */
+        .grid-skills {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        /* Savoir-faire : catégories avec barres */
+        .skill-category {
+            margin-bottom: 1.4rem;
+        }
+
+        .skill-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill-category-title {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 0.6rem;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .skill-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            background: rgba(79, 168, 245, 0.08);
+            border: 1px solid rgba(79, 168, 245, 0.2);
+            color: var(--text);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: background var(--transition), border-color var(--transition);
+        }
+
+        .skill-badge:hover {
+            background: rgba(79, 168, 245, 0.16);
+            border-color: rgba(79, 168, 245, 0.45);
+        }
+
+        .skill-badge.teal {
+            background: rgba(56, 217, 192, 0.08);
+            border-color: rgba(56, 217, 192, 0.2);
+            color: var(--text);
+        }
+        .skill-badge.teal:hover {
+            background: rgba(56, 217, 192, 0.15);
+            border-color: rgba(56, 217, 192, 0.45);
+        }
+
+        .skill-badge.violet {
+            background: rgba(167, 139, 250, 0.08);
+            border-color: rgba(167, 139, 250, 0.2);
+        }
+        .skill-badge.violet:hover {
+            background: rgba(167, 139, 250, 0.15);
+            border-color: rgba(167, 139, 250, 0.45);
+        }
+
+        /* Savoir-être */
+        .softskill-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
+        .softskill-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .softskill-list li i {
+            width: 32px; height: 32px;
+            border-radius: 8px;
+            background: rgba(52, 211, 153, 0.1);
+            border: 1px solid rgba(52, 211, 153, 0.25);
+            color: var(--green);
+            display: flex;
+            align-items: center;
             justify-content: center;
-        }
-        .card:hover { transform: translateY(-10px); border-color: #F59E0B; }
-
-        /* Centrage du 3ème projet */
-        .project-centered {
-            grid-column: 1 / -1;
-            justify-self: center;
-            max-width: 580px; /* Aligné sur la largeur des autres cartes */
+            font-size: 0.85rem;
+            flex-shrink: 0;
         }
 
-        /* COMPETENCES */
-        .skill-tag {
-            display: inline-block; background: rgba(56, 189, 248, 0.1);
-            color: var(--accent-blue); padding: 5px 15px; border-radius: 20px;
-            margin: 5px; font-size: 0.8rem; border: 1px solid var(--accent-blue);
-        }
-        .skill-tag:hover {
-            box-shadow: 0 0 10px #F59E0B;
-            transition: all 0.2s ease;
+        /* ============================
+           PROJETS
+        ============================ */
+        .grid-projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
         }
 
-        /* PROJETS */
-        .project-img { width: 100%; border-radius: 10px; margin-bottom: 1rem; height: 200px; object-fit: cover; }
-        .role-badge { font-size: 0.75rem; color: var(--accent-purple); text-transform: uppercase; font-weight: bold; margin-bottom: 0.5rem; display: block; }
-        .tools-badge { color: var(--accent-green-dark); font-weight: bold; margin-top: 1rem; font-size: 0.85rem; }
-
-        /* TIMELINE */
-        .timeline { border-left: 2px solid var(--accent-blue); padding-left: 20px; margin-left: 20px; }
-        .timeline-item { margin-bottom: 2.5rem; position: relative; }
-        .timeline-item::before { content: ""; position: absolute; left: -27px; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: #F59E0B; }
-        .timeline-date { color: var(--accent-blue); font-weight: bold; font-size: 0.9rem; }
-        .timeline-title { font-weight: bold; font-size: 1.1rem; margin: 5px 0; }
-        .timeline-desc { color: var(--text-dim); font-size: 0.9rem; }
-
-        /* FOOTER ET CONTACT */
-        footer { background: #070b14; padding: 4rem 10%; text-align: center; }
-        .btn-contact {
-            background: #F59E0B;
-            color: #0f172a; padding: 12px 30px; border-radius: 30px;
-            text-decoration: none; display: inline-block; margin-top: 1rem; font-weight: bold;
-        }
-        .btn-contact:hover {
-            background: #D97706;
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Titres projets */
-        #projets h3 {
-            color: #25a7fe;
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-hover);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
-        /* Bouton CV */
-        .cv-btn {
-            background: #F59E0B;
-            color: #0f172a;
-            border: none;
+        .project-img-wrap {
+            width: 100%;
+            height: 175px;
+            overflow: hidden;
+            background: var(--bg-card2);
         }
 
-        /* RESPONSIVE */
-        @media (max-width: 992px) {
-            .grid, .grid-about { grid-template-columns: 1fr; }
-            .project-centered { max-width: 100%; }
-            h1 { font-size: 2.5rem; }
-            nav { gap: 0.8rem; padding: 0.8rem; }
-            nav a { font-size: 0.75rem; }
+        .project-img-wrap img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
         }
 
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: var(--bg-dark);
-                color: var(--text-main);
+        .project-card:hover .project-img-wrap img {
+            transform: scale(1.04);
+        }
+
+        .project-body {
+            padding: 1.4rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .role-badge {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--violet);
+            margin-bottom: 0.6rem;
+            display: block;
+        }
+
+        .project-body h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-body p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+            flex: 1;
+        }
+
+        .tools-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 1rem;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--teal);
+            font-family: 'DM Mono', monospace;
+        }
+
+        /* ============================
+           TIMELINE
+        ============================ */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 5px; top: 0; bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--blue), var(--teal));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.2rem;
+        }
+
+        .timeline-item:last-child { margin-bottom: 0; }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.78rem; top: 5px;
+            width: 11px; height: 11px;
+            border-radius: 50%;
+            background: var(--blue);
+            border: 2px solid var(--bg);
+            box-shadow: 0 0 0 2px var(--blue);
+        }
+
+        .timeline-date {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--blue);
+            letter-spacing: 0.04em;
+            margin-bottom: 0.25rem;
+            font-family: 'DM Mono', monospace;
+        }
+
+        .timeline-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-desc {
+            font-size: 0.87rem;
+            color: var(--text-muted);
+        }
+
+        /* CV buttons */
+        .cv-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        .btn-cv {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 11px 26px;
+            border-radius: 30px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+
+        .btn-cv:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-cv.primary {
+            background: var(--blue);
+            color: #080f1e;
+        }
+
+        .btn-cv.primary:hover {
+            box-shadow: 0 6px 20px rgba(79, 168, 245, 0.35);
+        }
+
+        .btn-cv.secondary {
+            background: transparent;
+            color: var(--violet);
+            border: 1.5px solid var(--violet);
+        }
+
+        .btn-cv.secondary:hover {
+            background: rgba(167, 139, 250, 0.1);
+            box-shadow: 0 6px 20px rgba(167, 139, 250, 0.2);
+        }
+
+        /* ============================
+           FOOTER
+        ============================ */
+        footer {
+            position: relative;
+            z-index: 1;
+            background: #050c1a;
+            border-top: 1px solid var(--border);
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        footer h2 {
+            justify-content: center;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            margin-bottom: 0.75rem;
+        }
+
+        footer h2::before { display: none; }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .footer-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0 1.5rem;
+        }
+
+        .btn-footer {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+
+        .btn-footer:hover { transform: translateY(-2px); }
+
+        .btn-footer.mail {
+            background: var(--blue);
+            color: #080f1e;
+        }
+
+        .btn-footer.mail:hover {
+            box-shadow: 0 6px 20px rgba(79, 168, 245, 0.35);
+        }
+
+        .btn-footer.linkedin {
+            background: transparent;
+            color: var(--violet);
+            border: 1.5px solid var(--violet);
+        }
+
+        .btn-footer.linkedin:hover {
+            background: rgba(167, 139, 250, 0.1);
+            box-shadow: 0 6px 20px rgba(167, 139, 250, 0.2);
+        }
+
+        footer .copyright {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 1rem;
+            opacity: 0.6;
+        }
+
+        /* ============================
+           RESPONSIVE
+        ============================ */
+        @media (max-width: 768px) {
+            nav { gap: 1rem 1.5rem; padding: 0.75rem 1rem; }
+            nav a { font-size: 0.72rem; }
+
+            .grid-about,
+            .grid-skills,
+            .grid-projects {
+                grid-template-columns: 1fr;
             }
+
+            .profile-img { width: 130px; height: 130px; }
+
+            section { padding: 4rem 5%; }
+
+            .cv-buttons { flex-direction: column; }
+        }
+
+        @media (max-width: 480px) {
+            nav a { font-size: 0.68rem; gap: 0.8rem; }
+            .footer-buttons { flex-direction: column; align-items: center; }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="#accueil">ACCUEIL</a>
-        <a href="#a-propos">À PROPOS</a>
-        <a href="#competences">COMPÉTENCES</a>
-        <a href="#projets">PROJETS</a>
-        <a href="#cv">PARCOURS</a>
-        <a href="#contact">CONTACT</a>
-    </nav>
+<!-- ===================== NAV ===================== -->
+<nav>
+    <a href="#accueil">Accueil</a>
+    <a href="#a-propos">À propos</a>
+    <a href="#competences">Compétences</a>
+    <a href="#projets">Projets</a>
+    <a href="#cv">Parcours</a>
+    <a href="#contact">Contact</a>
+</nav>
 
-    <header id="accueil">
-        <img src="images/photo_nayas.jpg" alt="Nayas" class="profile-img">
-        <h1>Nayas AHAMEDSAH</h1>
-        <p class="subtitle">Étudiant en BUT Informatique (1ère année) | Champs-sur-Marne</p>
-        <div class="alternance-tag">Recherche Alternance - Septembre 2026 (BUT2 & BUT3)</div>
-        <a href="#contact" class="btn-contact">Me contacter</a>
-    </header>
+<!-- ===================== HEADER ===================== -->
+<header id="accueil">
+    <img src="images/photo_nayas.jpg" alt="Photo de Nayas" class="profile-img">
+    <h1>Nayas AHAMEDSAH</h1>
+    <p class="subtitle">Étudiant en BUT Informatique (1ère année) &mdash; Champs-sur-Marne</p>
+    <div class="alternance-tag">Recherche Alternance 12 à 24 mois &mdash; Septembre 2026 (BUT2 &amp; BUT3)</div>
+    <a href="#contact" class="btn-contact">Me contacter</a>
+</header>
 
-    <section id="a-propos">
-        <h2>À propos de moi</h2>
-        <div class="grid-about">
-            <div class="card">
-                <div class="card">
-                    <h3><i class="fas fa-bullseye" style="color:var(--accent-green-dark)"></i> Profil</h3>
-                    <ul>
-                        <li><strong>Formation :</strong> Étudiant en BUT Informatique</li>
-                        <li><strong>Spécialisation :</strong> Développement web et création d'applications fonctionnelles</li>
-                        <li><strong>Engagement :</strong> Prêt à s'investir et progresser au sein d'une équipe professionnelle</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card">
-                    <h3><i class="fas fa-graduation-cap" style="color:var(--accent-purple)"></i> Mes Objectifs</h3>
-                    <ul>
-                        <li><strong>Court terme :</strong> Intégrer une entreprise sur des projets réels</li>
-                        <li><strong>Long terme :</strong> Approfondir la programmation et le travail d'équipe</li>
-                        <li><strong>Vision :</strong> Poursuite en Master ou École d'Ingénieur pour devenir Expert en Ingénierie Logicielle</li>
-                    </ul>
-                </div>
-            </div>
+<!-- ===================== À PROPOS ===================== -->
+<section id="a-propos">
+    <h2>À propos de moi</h2>
+    <div class="grid-about">
+        <div class="card">
+            <h3><i class="fas fa-bullseye" style="color:var(--teal)"></i> Profil</h3>
+            <ul>
+                <li><strong>Formation :</strong> Étudiant en BUT Informatique</li>
+                <li><strong>Spécialisation :</strong> Développement web et création d'applications fonctionnelles</li>
+                <li><strong>Engagement :</strong> Prêt à s'investir et progresser au sein d'une équipe professionnelle</li>
+            </ul>
         </div>
-    </section>
-
-    <section id="competences">
-        <h2>Compétences</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Savoir-faire</h3>
-                <div style="margin-top: 1rem;">
-                    <div class="skill-tag">Développement Web - HTML5 & CSS3 / VS Code & GitHub</div>
-                    <div class="skill-tag">Programmation - Python | C & Java (Notions) / VS Code & Eclipse</div>
-                    <div class="skill-tag">Bases de donnée - SQL / MySQL & phpMyAdmin</div>
-                    <div class="skill-tag">Bases Réseaux & Systèmes - Ubuntu & Bash / Netkit & DHCP</div>
-                    <div class="skill-tag">Gestion de Projet - Collaboration / IA</div>
-                </div>
-            </div>
-            <div class="card">
-                <h3>Savoir-être</h3>
-                <ul style="list-style: none; margin-top: 1rem; display: flex; flex-direction: column; gap: 15px;">
-                    <li><i class="fas fa-chalkboard-teacher" style="color:var(--accent-green-dark)"></i> Pédagogie</li>
-                    <li><i class="fas fa-tasks" style="color:var(--accent-green-dark)"></i> Organisation</li>
-                    <li><i class="fas fa-sync-alt" style="color:var(--accent-green-dark)"></i> Adaptabilité</li>
-                    <li><i class="fas fa-users" style="color:var(--accent-green-dark)"></i> Travail d'équipe</li>
-                    <li><i class="fas fa-lightbulb" style="color:var(--accent-green-dark)"></i> Curiosité</li>
-                </ul>
-            </div>
+        <div class="card">
+            <h3><i class="fas fa-graduation-cap" style="color:var(--violet)"></i> Mes Objectifs</h3>
+            <ul>
+                <li><strong>Court terme :</strong> Intégrer une entreprise sur des projets réels</li>
+                <li><strong>Long terme :</strong> Approfondir la programmation et le travail d'équipe</li>
+                <li><strong>Vision :</strong> Poursuite en Master ou École d'Ingénieur pour devenir Expert en Ingénierie Logicielle</li>
+            </ul>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="projets">
-        <h2>Projets Universitaires</h2>
-        <div class="grid">
-            <div class="card">
-                <div>
-                    <span class="role-badge">Projet de Groupe | Rôles : UI/UX Design & Front-end</span>
-                    <img src="images/projet_unesco.jpg" alt="Unesco" class="project-img">
-                    <h3>Site Web Unesco</h3>
-                    <p>Création d'un site vitrine sur Chichén Itzá. Intégration d'une partie des interfaces et conception de l'expérience utilisateur.</p>
-                    <p class="tools-badge">Outils : HTML5 / CSS3, Figma</p>
+<!-- ===================== COMPÉTENCES ===================== -->
+<section id="competences">
+    <h2>Compétences</h2>
+    <div class="grid-skills">
+
+        <div class="card">
+            <h3><i class="fas fa-code" style="color:var(--blue)"></i> Savoir-faire</h3>
+
+            <div class="skill-category">
+                <div class="skill-category-title">Développement Web</div>
+                <div class="skill-items">
+                    <span class="skill-badge">HTML5</span>
+                    <span class="skill-badge">CSS3</span>
+                    <span class="skill-badge">VS Code</span>
+                    <span class="skill-badge">GitHub</span>
                 </div>
             </div>
 
-            <div class="card">
-                <div>
-                    <span class="role-badge">Projet de Groupe | Rôles : Gestion menu, UI</span>
-                    <img src="images/projet_python.jpg" alt="Wall Is You" class="project-img">
-                    <h3>Jeu "Wall Is You"</h3>
-                    <p>Conception d'un jeu de logique interactif. Travail sur l'ergonomie des menus et la fluidité de l'interface.</p>
-                    <p class="tools-badge">Outils : Python, Thonny</p>
+            <div class="skill-category">
+                <div class="skill-category-title">Programmation</div>
+                <div class="skill-items">
+                    <span class="skill-badge teal">Python</span>
+                    <span class="skill-badge teal">C (notions)</span>
+                    <span class="skill-badge teal">Java (notions)</span>
+                    <span class="skill-badge teal">Eclipse</span>
                 </div>
             </div>
 
-            <div class="card project-centered">
-                <div>
-                    <span class="role-badge">Projet de Groupe | Rôles : Modélisation & SQL</span>
-                    <img src="images/projet_BDD.jpg" alt="Base De Donnée" class="project-img">
-                    <h3>Base de Données</h3>
-                    <p>Modélisation complète du MCD/MLD et validation des scripts SQL sous MySQL.</p>
-                    <p class="tools-badge">Outils : MySQL, Looping, PHPMyAdmin</p>
+            <div class="skill-category">
+                <div class="skill-category-title">Bases de données</div>
+                <div class="skill-items">
+                    <span class="skill-badge violet">SQL</span>
+                    <span class="skill-badge violet">MySQL</span>
+                    <span class="skill-badge violet">phpMyAdmin</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <div class="skill-category-title">Réseaux & Systèmes</div>
+                <div class="skill-items">
+                    <span class="skill-badge">Ubuntu</span>
+                    <span class="skill-badge">Bash</span>
+                    <span class="skill-badge">Netkit</span>
+                    <span class="skill-badge">DHCP</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <div class="skill-category-title">Gestion de projet</div>
+                <div class="skill-items">
+                    <span class="skill-badge teal">Collaboration</span>
+                    <span class="skill-badge teal">IA</span>
+                    <span class="skill-badge teal">Figma</span>
                 </div>
             </div>
         </div>
-    </section>
 
-    <section id="cv">
-        <h2>Parcours</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <p class="timeline-date">Septembre 2025 - Présent</p>
-                <p class="timeline-title">BUT Informatique - 1ère Année</p>
-                <p class="timeline-desc">IUT de Champs-sur-Marne | Développement, réseaux et gestion de projet.</p>
-            </div>
-            
-            <div class="timeline-item">
-                <p class="timeline-date">Juin 2025</p>
-                <p class="timeline-title">Diplôme du BAC STI2D</p>
-                <p class="timeline-desc">Spécialité Énergie et Environnement | Lycée de Champigny-sur-Marne.</p>
-            </div>
+        <div class="card">
+            <h3><i class="fas fa-star" style="color:var(--green)"></i> Savoir-être</h3>
+            <ul class="softskill-list">
+                <li>
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <div>
+                        <strong style="color:var(--text); display:block">Pédagogie</strong>
+                        <span style="font-size:0.8rem">Capacité à expliquer et transmettre</span>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-tasks"></i>
+                    <div>
+                        <strong style="color:var(--text); display:block">Organisation</strong>
+                        <span style="font-size:0.8rem">Gestion de priorités et respect des délais</span>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-sync-alt"></i>
+                    <div>
+                        <strong style="color:var(--text); display:block">Adaptabilité</strong>
+                        <span style="font-size:0.8rem">À l'aise dans de nouveaux environnements</span>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-users"></i>
+                    <div>
+                        <strong style="color:var(--text); display:block">Travail d'équipe</strong>
+                        <span style="font-size:0.8rem">Collaboration et communication active</span>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-lightbulb"></i>
+                    <div>
+                        <strong style="color:var(--text); display:block">Curiosité</strong>
+                        <span style="font-size:0.8rem">Envie constante d'apprendre</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
 
-            <div class="timeline-item">
-                <p class="timeline-date">2023 - 2024</p>
-                <p class="timeline-title">Tutorat</p>
-                <p class="timeline-desc">Animation de séances de soutien et pédagogie individuelle.</p>
-            </div>
+    </div>
+</section>
 
-            <div class="timeline-item">
-                <p class="timeline-date">2020 - 2023</p>
-                <p class="timeline-title">Monteur vidéo</p>
-                <p class="timeline-desc">Réalisation de contenus éducatifs et visuels | Collaboration sur la sélection des sujets.</p>
-            </div>
+<!-- ===================== PROJETS ===================== -->
+<section id="projets">
+    <h2>Projets Universitaires</h2>
+    <div class="grid-projects">
 
-            <div class="timeline-item">
-                <p class="timeline-date">Février 2022</p>
-                <p class="timeline-title">Stage d'observation (3ème) : Mécanique</p>
-                <p class="timeline-desc">Découverte de la gestion de stock et de la relation client en atelier.</p>
+        <div class="project-card">
+            <div class="project-img-wrap">
+                <img src="images/projet_unesco.jpg" alt="Site Unesco">
+            </div>
+            <div class="project-body">
+                <span class="role-badge">Projet de Groupe &mdash; UI/UX Design &amp; Front-end</span>
+                <h3>Site Web Unesco</h3>
+                <p>Création d'un site vitrine sur Chichén Itzá. Intégration des interfaces et conception de l'expérience utilisateur.</p>
+                <span class="tools-badge"><i class="fas fa-wrench"></i> HTML5 / CSS3, Figma</span>
             </div>
         </div>
-        
-        <div style="margin-top: 30px;">
-            <a href="documents/CV_Nayas.pdf" target="_blank" class="skill-tag cv-btn" style="text-decoration:none"><i class="fas fa-file-pdf"></i>&nbsp;Consultez mon CV</a>
-        </div>
-    </section>
 
-    <footer id="contact">
-        <h2>Collaborer ensemble ?</h2>
-        <p>Disponible pour une alternance en Île-de-France</p>
-        <p>Secteur : Villiers-sur-Marne (94) & Paris / EST Parisien</p>
-        <div style="margin: 20px 0;">
-            <a href="mailto:ahamedsah.nayas@gmail.com" class="btn-contact">Envoyer un mail</a>
+        <div class="project-card">
+            <div class="project-img-wrap">
+                <img src="images/projet_python.jpg" alt="Wall Is You">
+            </div>
+            <div class="project-body">
+                <span class="role-badge">Projet de Groupe &mdash; Gestion menu &amp; UI</span>
+                <h3>Jeu "Wall Is You"</h3>
+                <p>Conception d'un jeu de logique interactif. Travail sur l'ergonomie des menus et la fluidité de l'interface.</p>
+                <span class="tools-badge"><i class="fas fa-wrench"></i> Python, Thonny</span>
+            </div>
         </div>
-        <p style="color:var(--text-dim); font-size: 0.8rem;">© 2026 - Réalisé par Nayas | Étudiant BUT Informatique</p>
-    </footer>
+
+        <div class="project-card">
+            <div class="project-img-wrap">
+                <img src="images/projet_BDD.jpg" alt="Base de Données">
+            </div>
+            <div class="project-body">
+                <span class="role-badge">Projet de Groupe &mdash; Modélisation &amp; SQL</span>
+                <h3>Base de Données</h3>
+                <p>Modélisation complète du MCD/MLD et validation des scripts SQL sous MySQL.</p>
+                <span class="tools-badge"><i class="fas fa-wrench"></i> MySQL, Looping, PHPMyAdmin</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-img-wrap">
+                <img src="images/projet_reseau.jpg" alt="Serveur DHCP">
+            </div>
+            <div class="project-body">
+                <span class="role-badge">Projet de Groupe &mdash; Administration système &amp; Réseau</span>
+                <h3>Serveur DHCP</h3>
+                <p>Mise en place d'une infrastructure réseau virtualisée. Configuration du service DHCP, gestion des baux et routage des clients.</p>
+                <span class="tools-badge"><i class="fas fa-wrench"></i> Ubuntu, Netkit, Wireshark, ISC-DHCP</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===================== PARCOURS ===================== -->
+<section id="cv">
+    <h2>Parcours</h2>
+
+    <div class="timeline">
+        <div class="timeline-item">
+            <p class="timeline-date">Septembre 2025 — Présent</p>
+            <p class="timeline-title">BUT Informatique — 1ère Année</p>
+            <p class="timeline-desc">IUT de Champs-sur-Marne &mdash; Développement, réseaux et gestion de projet.</p>
+        </div>
+        <div class="timeline-item">
+            <p class="timeline-date">Juin 2025</p>
+            <p class="timeline-title">Diplôme du BAC STI2D</p>
+            <p class="timeline-desc">Spécialité Énergie et Environnement &mdash; Lycée de Champigny-sur-Marne.</p>
+        </div>
+        <div class="timeline-item">
+            <p class="timeline-date">2023 — 2024</p>
+            <p class="timeline-title">Tutorat</p>
+            <p class="timeline-desc">Animation de séances de soutien et pédagogie individuelle.</p>
+        </div>
+        <div class="timeline-item">
+            <p class="timeline-date">2020 — 2023</p>
+            <p class="timeline-title">Monteur vidéo</p>
+            <p class="timeline-desc">Réalisation de contenus éducatifs et visuels &mdash; Collaboration sur la sélection des sujets.</p>
+        </div>
+        <div class="timeline-item">
+            <p class="timeline-date">Février 2022</p>
+            <p class="timeline-title">Stage d'observation (3ème) : Mécanique</p>
+            <p class="timeline-desc">Découverte de la gestion de stock et de la relation client en atelier.</p>
+        </div>
+    </div>
+
+    <div class="cv-buttons">
+        <a href="documents/CV_Nayas.pdf" target="_blank" class="btn-cv primary">
+            <i class="fas fa-file-pdf"></i> Consulter mon CV
+        </a>
+        <a href="https://www.linkedin.com/in/ton-profil" target="_blank" class="btn-cv secondary">
+            <i class="fab fa-linkedin"></i> Consulter mon LinkedIn
+        </a>
+    </div>
+</section>
+
+<!-- ===================== FOOTER / CONTACT ===================== -->
+<footer id="contact">
+    <h2>Collaborer ensemble ?</h2>
+    <p>Disponible pour une alternance en Île-de-France</p>
+    <p>Secteur : Villiers-sur-Marne (94) &amp; Paris / EST Parisien</p>
+
+    <div class="footer-buttons">
+        <a href="mailto:ahamedsah.nayas@gmail.com" class="btn-footer mail">
+            <i class="fas fa-envelope"></i> Envoyer un mail
+        </a>
+        <a href="https://www.linkedin.com/in/ton-profil" target="_blank" class="btn-footer linkedin">
+            <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+    </div>
+
+    <p class="copyright">© 2026 — Réalisé par Nayas &middot; Étudiant BUT Informatique</p>
+</footer>
 
 </body>
 </html>
