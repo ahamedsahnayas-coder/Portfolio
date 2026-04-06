@@ -27,7 +27,7 @@
             --green:     #34d399;
 
             --text:      #e8f0fe;
-            --text-muted:#7a9abf;
+            --text-muted:#b0cef0;
 
             --radius:    14px;
             --transition: 0.25s ease;
@@ -143,7 +143,7 @@
             font-size: clamp(2.4rem, 6vw, 3.8rem);
             font-weight: 700;
             margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, #ffffff 30%, var(--violet));
+            background: linear-gradient(135deg, #12c8ff 30%, var(--violet));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             position: relative; z-index: 1;
@@ -465,6 +465,24 @@
             flex: 1;
         }
 
+        /* --- Liste à puces des projets (partie 5) --- */
+        .project-body ul {
+            list-style: disc;
+            padding-left: 1.1rem;
+            margin-top: 0.55rem;
+            margin-bottom: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;          /* espacement compact entre puces */
+        }
+
+.project-body ul li {
+    font-size: 0.8rem;    /* plus petit que le contexte (0.88rem) */
+    color: #7da8d4;       /* bleu-gris doux, moins blanc que --text */
+    line-height: 1.45;
+    padding-left: 0.2rem;
+}
+
         .tools-badge {
             display: inline-flex;
             align-items: center;
@@ -693,8 +711,8 @@
 <header id="accueil">
     <img src="images/photo_nayas.jpg" alt="Photo de Nayas" class="profile-img">
     <h1>Nayas AHAMEDSAH</h1>
-    <p class="subtitle">Étudiant en BUT Informatique (1ère année) &mdash; Champs-sur-Marne</p>
-    <div class="alternance-tag">Recherche Alternance 12 à 24 mois &mdash; Septembre 2026 (BUT2 &amp; BUT3)</div>
+    <p class="subtitle">Étudiant en BUT Informatique (1ère année) | Champs-sur-Marne</p>
+    <div class="alternance-tag">Recherche Alternance 12 à 24 mois - Septembre 2026 (BUT2 & BUT3)</div>
     <a href="#contact" class="btn-contact">Me contacter</a>
 </header>
 
@@ -707,14 +725,14 @@
             <ul>
                 <li><strong>Formation :</strong> Étudiant en BUT Informatique</li>
                 <li><strong>Spécialisation :</strong> Développement web et création d'applications fonctionnelles</li>
-                <li><strong>Engagement :</strong> Prêt à s'investir et progresser au sein d'une équipe professionnelle</li>
+                <li><strong>Engagement :</strong> Déterminé à s'investir et progresser au sein d'une équipe professionnelle</li>
             </ul>
         </div>
         <div class="card">
             <h3><i class="fas fa-graduation-cap" style="color:var(--violet)"></i> Mes Objectifs</h3>
             <ul>
-                <li><strong>Court terme :</strong> Intégrer une entreprise sur des projets réels</li>
-                <li><strong>Long terme :</strong> Approfondir la programmation et le travail d'équipe</li>
+                <li><strong>Court terme :</strong> Intégrer une équipe technique pour travailler sur des projets concrets</li>
+                <li><strong>Long terme :</strong> Devenir un développeur autonome, capable de gérer des projets complexes</li>
                 <li><strong>Vision :</strong> Poursuite en Master ou École d'Ingénieur pour devenir Expert en Ingénierie Logicielle</li>
             </ul>
         </div>
@@ -734,17 +752,18 @@
                 <div class="skill-items">
                     <span class="skill-badge">HTML5</span>
                     <span class="skill-badge">CSS3</span>
-                    <span class="skill-badge">VS Code</span>
                     <span class="skill-badge">GitHub</span>
+                    <span class="skill-badge">VS Code</span>
                 </div>
             </div>
 
             <div class="skill-category">
                 <div class="skill-category-title">Programmation</div>
                 <div class="skill-items">
+                    <span class="skill-badge teal">Java</span>
                     <span class="skill-badge teal">Python</span>
+                    <span class="skill-badge teal">SQL</span>
                     <span class="skill-badge teal">C (notions)</span>
-                    <span class="skill-badge teal">Java (notions)</span>
                     <span class="skill-badge teal">Eclipse</span>
                 </div>
             </div>
@@ -752,8 +771,10 @@
             <div class="skill-category">
                 <div class="skill-category-title">Bases de données</div>
                 <div class="skill-items">
-                    <span class="skill-badge violet">SQL</span>
+                    <span class="skill-badge violet">PostgreSQL</span>
                     <span class="skill-badge violet">MySQL</span>
+                    <span class="skill-badge violet">Modélisation (MCD/MLD)</span>
+                    <span class="skill-badge violet">Looping</span>
                     <span class="skill-badge violet">phpMyAdmin</span>
                 </div>
             </div>
@@ -764,16 +785,17 @@
                     <span class="skill-badge">Ubuntu</span>
                     <span class="skill-badge">Bash</span>
                     <span class="skill-badge">Netkit</span>
-                    <span class="skill-badge">DHCP</span>
+                    <span class="skill-badge">Services DHCP</span>
                 </div>
             </div>
 
             <div class="skill-category">
-                <div class="skill-category-title">Gestion de projet</div>
+                <div class="skill-category-title">Design & IA</div>
                 <div class="skill-items">
-                    <span class="skill-badge teal">Collaboration</span>
-                    <span class="skill-badge teal">IA</span>
-                    <span class="skill-badge teal">Figma</span>
+                    <span class="skill-badge teal">Figma (UI/UX)</span>
+                    <span class="skill-badge teal">Canva</span>
+                    <span class="skill-badge teal">IA Générative</span>
+                    <span class="skill-badge teal">Montage vidéo (Filmora)</span>
                 </div>
             </div>
         </div>
@@ -782,38 +804,38 @@
             <h3><i class="fas fa-star" style="color:var(--green)"></i> Savoir-être</h3>
             <ul class="softskill-list">
                 <li>
-                    <i class="fas fa-chalkboard-teacher"></i>
+                    <i class="fas fa-check-double"></i>
                     <div>
-                        <strong style="color:var(--text); display:block">Pédagogie</strong>
-                        <span style="font-size:0.8rem">Capacité à expliquer et transmettre</span>
+                        <strong style="color:var(--text); display:block">Rigoureux</strong>
+                        <span style="font-size:0.8rem">Je fais attention aux détails, que ce soit pour la propreté de mon code ou le respect des consignes du projet.</span>
                     </div>
                 </li>
                 <li>
-                    <i class="fas fa-tasks"></i>
+                    <i class="fas fa-calendar-check"></i>
                     <div>
                         <strong style="color:var(--text); display:block">Organisation</strong>
-                        <span style="font-size:0.8rem">Gestion de priorités et respect des délais</span>
+                        <span style="font-size:0.8rem">Je sais gérer mes priorités pour rendre mes travaux en temps voulu.</span>
                     </div>
                 </li>
                 <li>
-                    <i class="fas fa-sync-alt"></i>
+                    <i class="fas fa-user-shield"></i>
                     <div>
-                        <strong style="color:var(--text); display:block">Adaptabilité</strong>
-                        <span style="font-size:0.8rem">À l'aise dans de nouveaux environnements</span>
-                    </div>
-                </li>
-                <li>
-                    <i class="fas fa-users"></i>
-                    <div>
-                        <strong style="color:var(--text); display:block">Travail d'équipe</strong>
-                        <span style="font-size:0.8rem">Collaboration et communication active</span>
+                        <strong style="color:var(--text); display:block">Autonome</strong>
+                        <span style="font-size:0.8rem">Lorsque je bloque sur un problème technique, je cherche des solutions par moi-même avant de solliciter l'équipe.</span>
                     </div>
                 </li>
                 <li>
                     <i class="fas fa-lightbulb"></i>
                     <div>
-                        <strong style="color:var(--text); display:block">Curiosité</strong>
-                        <span style="font-size:0.8rem">Envie constante d'apprendre</span>
+                        <strong style="color:var(--text); display:block">Curieux</strong>
+                        <span style="font-size:0.8rem">J'aime apprendre de nouvelles choses et de tester des outils comme l'IA pour améliorer ma façon de coder.</span>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-users"></i>
+                    <div>
+                        <strong style="color:var(--text); display:block">Esprit d'équipe</strong>
+                        <span style="font-size:0.8rem">J'apprécie le travail de groupe et je communique avec mes partenaires pour pouvoir nous faire avancer.</span>
                     </div>
                 </li>
             </ul>
@@ -832,9 +854,14 @@
                 <img src="images/projet_unesco.jpg" alt="Site Unesco">
             </div>
             <div class="project-body">
-                <span class="role-badge">Projet de Groupe &mdash; UI/UX Design &amp; Front-end</span>
+                <span class="role-badge">Projet de Groupe - Mon rôle : UI/UX Design & Front-end</span>
                 <h3>Site Web Unesco</h3>
-                <p>Création d'un site vitrine sur Chichén Itzá. Intégration des interfaces et conception de l'expérience utilisateur.</p>
+                <p>Projet réalisé en lien avec l'UNESCO, nous avons conçu un site vitrine dédié au site de Chichén Itzá afin de promouvoir le patrimoine mondial auprès des visiteurs.</p>
+                    <ul>
+                        <li>J'ai conçu une partie du design de l'interface et de la maquette interactive sur Figma</li>
+                        <li>J'ai codé une partie de l'interface en HTML5/CSS3 avec du Responsive Design</li>
+                        <li>J'ai créé un module de QCM personnalisé pour rendre la visite du site plus interactive</li>
+                    </ul>
                 <span class="tools-badge"><i class="fas fa-wrench"></i> HTML5 / CSS3, Figma</span>
             </div>
         </div>
@@ -844,9 +871,14 @@
                 <img src="images/projet_python.jpg" alt="Wall Is You">
             </div>
             <div class="project-body">
-                <span class="role-badge">Projet de Groupe &mdash; Gestion menu &amp; UI</span>
+                <span class="role-badge">Projet de Groupe - Mon rôle : Interface & Visuelle</span>
                 <h3>Jeu "Wall Is You"</h3>
-                <p>Conception d'un jeu de logique interactif. Travail sur l'ergonomie des menus et la fluidité de l'interface.</p>
+                <p>Développement d'un jeu de logique sous Python où le joueur doit déplacer son personnage à travers plusieurs obstacles pour éliminer des dragons.</p>
+                    <ul>
+                        <li>J'ai créé toute l’ergonomie et le design des menus pour que la navigation dans le jeu soit fluide</li>
+                        <li>J'ai programmé la rotation des images (salles) selon les déplacements du joueur</li>
+                        <li>J'ai vérifié que toutes les consignes du jeu étaient bien respectées et fonctionnelles</li>
+                    </ul>
                 <span class="tools-badge"><i class="fas fa-wrench"></i> Python, Thonny</span>
             </div>
         </div>
@@ -856,10 +888,15 @@
                 <img src="images/projet_BDD.jpg" alt="Base de Données">
             </div>
             <div class="project-body">
-                <span class="role-badge">Projet de Groupe &mdash; Modélisation &amp; SQL</span>
+                <span class="role-badge">Projet de Groupe - Mon rôle : Modélisation & Validation</span>
                 <h3>Base de Données</h3>
-                <p>Modélisation complète du MCD/MLD et validation des scripts SQL sous MySQL.</p>
-                <span class="tools-badge"><i class="fas fa-wrench"></i> MySQL, Looping, PHPMyAdmin</span>
+                <p>Création complète d'une base de données, en partant de la modélisation des besoins jusqu'à l'écriture des scripts et des requêtes SQL pour manipuler les données.</p>
+                    <ul>
+                        <li>J'ai réalisé toute la modélisation des données (MCD et MLD) à l'aide de l'outil Looping</li>
+                        <li>J'ai vérifié et testé les scripts SQL pour m'assurer qu'ils fonctionnaient bien sous MySQL</li>
+                        <li><strong>En cours :</strong> Apprentissage de PostgreSQL via l'utilisation du terminal</li>
+                    </ul>
+                <span class="tools-badge"><i class="fas fa-wrench"></i>PostgreSQL (Terminal), MySQL, Looping, PHPMyAdmin</span>
             </div>
         </div>
 
@@ -868,10 +905,15 @@
                 <img src="images/projet_reseau.jpg" alt="Serveur DHCP">
             </div>
             <div class="project-body">
-                <span class="role-badge">Projet de Groupe &mdash; Administration système &amp; Réseau</span>
+                <span class="role-badge">Projet de Groupe - Administration système & Réseau</span>
                 <h3>Serveur DHCP</h3>
-                <p>Mise en place d'une infrastructure réseau virtualisée. Configuration du service DHCP, gestion des baux et routage des clients.</p>
-                <span class="tools-badge"><i class="fas fa-wrench"></i> Ubuntu, Netkit, Wireshark, ISC-DHCP</span>
+                <p>Mise en place d'un réseau virtuel pour que les ordinateurs reçoivent automatiquement une adresse IP et puissent se connecter à internet.</p>
+                    <ul>
+                        <li>J'ai réalisé l'installation et la configuration technique complète du service DHCP</li>
+                        <li>J'ai paramétré la gestion des baux et les réservations d'adresses IP pour les clients</li>
+                        <li>J'ai configuré le routage réseau pour assurer une connectivité parfaite entre les postes</li>
+                    </ul>
+                <span class="tools-badge"><i class="fas fa-wrench"></i> Ubuntu, Netkit, Wireshark</span>
             </div>
         </div>
 
@@ -886,27 +928,27 @@
         <div class="timeline-item">
             <p class="timeline-date">Septembre 2025 — Présent</p>
             <p class="timeline-title">BUT Informatique — 1ère Année</p>
-            <p class="timeline-desc">IUT de Champs-sur-Marne &mdash; Développement, réseaux et gestion de projet.</p>
+            <p class="timeline-desc">IUT de Champs-sur-Marne | Développement, réseaux et gestion de projet</p>
         </div>
         <div class="timeline-item">
             <p class="timeline-date">Juin 2025</p>
             <p class="timeline-title">Diplôme du BAC STI2D</p>
-            <p class="timeline-desc">Spécialité Énergie et Environnement &mdash; Lycée de Champigny-sur-Marne.</p>
+            <p class="timeline-desc">Spécialité Énergie et Environnement | Lycée Langevin Wallon - Champigny-sur-Marne (94)</p>
         </div>
         <div class="timeline-item">
             <p class="timeline-date">2023 — 2024</p>
             <p class="timeline-title">Tutorat</p>
-            <p class="timeline-desc">Animation de séances de soutien et pédagogie individuelle.</p>
+            <p class="timeline-desc">Animation de séances de soutien bénévole et pédagogie individuelle.</p>
         </div>
         <div class="timeline-item">
             <p class="timeline-date">2020 — 2023</p>
             <p class="timeline-title">Monteur vidéo</p>
-            <p class="timeline-desc">Réalisation de contenus éducatifs et visuels &mdash; Collaboration sur la sélection des sujets.</p>
+            <p class="timeline-desc">Réalisation de contenus éducatifs et visuels | Collaboration sur la sélection des sujets</p>
         </div>
         <div class="timeline-item">
             <p class="timeline-date">Février 2022</p>
             <p class="timeline-title">Stage d'observation (3ème) : Mécanique</p>
-            <p class="timeline-desc">Découverte de la gestion de stock et de la relation client en atelier.</p>
+            <p class="timeline-desc">Découverte de la gestion de stock et de la relation client en atelier</p>
         </div>
     </div>
 
@@ -914,7 +956,7 @@
         <a href="documents/CV_Nayas.pdf" target="_blank" class="btn-cv primary">
             <i class="fas fa-file-pdf"></i> Consulter mon CV
         </a>
-        <a href="https://www.linkedin.com/in/ton-profil" target="_blank" class="btn-cv secondary">
+        <a href="https://www.linkedin.com/in/nayas-ahamedsah-66061b3a7/" target="_blank" class="btn-cv secondary">
             <i class="fab fa-linkedin"></i> Consulter mon LinkedIn
         </a>
     </div>
@@ -923,19 +965,17 @@
 <!-- ===================== FOOTER / CONTACT ===================== -->
 <footer id="contact">
     <h2>Collaborer ensemble ?</h2>
-    <p>Disponible pour une alternance en Île-de-France</p>
-    <p>Secteur : Villiers-sur-Marne (94) &amp; Paris / EST Parisien</p>
+    <p>À la recherche d'une alternance en développement web<br>pour une alternance en Île-de-France</p>
+    <p>Secteur : Villiers-sur-Marne (94) & Paris / EST Parisien</p>
 
     <div class="footer-buttons">
         <a href="mailto:ahamedsah.nayas@gmail.com" class="btn-footer mail">
             <i class="fas fa-envelope"></i> Envoyer un mail
         </a>
-        <a href="https://www.linkedin.com/in/ton-profil" target="_blank" class="btn-footer linkedin">
-            <i class="fab fa-linkedin"></i> LinkedIn
-        </a>
+        
     </div>
 
-    <p class="copyright">© 2026 — Réalisé par Nayas &middot; Étudiant BUT Informatique</p>
+    <p class="copyright">© 2026 — Réalisé par Nayas | Étudiant BUT Informatique</p>
 </footer>
 
 </body>
