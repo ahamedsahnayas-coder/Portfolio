@@ -10,9 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
-        /* ============================
-           VARIABLES & RESET
-        ============================ */
+        
         :root {
             --bg:        #080f1e;
             --bg-card:   #0e1a2e;
@@ -27,7 +25,7 @@
             --green:     #34d399;
 
             --text:      #e8f0fe;
-            --text-muted:#b0cef0;
+            --text-muted:#9bbae0;
 
             --radius:    14px;
             --transition: 0.25s ease;
@@ -47,9 +45,7 @@
             font-size: 16px;
         }
 
-        /* ============================
-           BACKGROUND DOTS
-        ============================ */
+        
         body::before {
             content: '';
             position: fixed;
@@ -60,9 +56,8 @@
             z-index: 0;
         }
 
-        /* ============================
-           NAVIGATION
-        ============================ */
+        /* NAVIGATION */
+
         nav {
             position: fixed;
             top: 0; width: 100%;
@@ -101,9 +96,8 @@
         nav a:hover { color: var(--blue); }
         nav a:hover::after { width: 100%; }
 
-        /* ============================
-           HEADER
-        ============================ */
+        /* HEADER */
+
         header {
             position: relative;
             min-height: 100vh;
@@ -117,6 +111,7 @@
         }
 
         /* glow orbs */
+
         header::before {
             content: '';
             position: absolute;
@@ -203,9 +198,8 @@
             box-shadow: 0 6px 24px rgba(79, 168, 245, 0.35);
         }
 
-        /* ============================
-           SECTIONS
-        ============================ */
+        /* SECTIONS */
+
         section {
             position: relative;
             z-index: 1;
@@ -233,9 +227,7 @@
             flex-shrink: 0;
         }
 
-        /* ============================
-           CARDS
-        ============================ */
+        /* CARDS */
         .card {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -260,9 +252,7 @@
             gap: 0.6rem;
         }
 
-        /* ============================
-           À PROPOS
-        ============================ */
+        /* À PROPOS */
         .grid-about {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -289,16 +279,14 @@
             color: var(--text);
         }
 
-        /* ============================
-           COMPÉTENCES
-        ============================ */
+        /* COMPÉTENCES */
         .grid-skills {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1.5rem;
         }
 
-        /* Savoir-faire : catégories avec barres */
+        /* Savoir-faire */
         .skill-category {
             margin-bottom: 1.4rem;
         }
@@ -391,9 +379,7 @@
             flex-shrink: 0;
         }
 
-        /* ============================
-           PROJETS
-        ============================ */
+        /* PROJETS */
         .grid-projects {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -465,7 +451,6 @@
             flex: 1;
         }
 
-        /* --- Liste à puces des projets (partie 5) --- */
         .project-body ul {
             list-style: disc;
             padding-left: 1.1rem;
@@ -473,12 +458,12 @@
             margin-bottom: 0;
             display: flex;
             flex-direction: column;
-            gap: 0.3rem;          /* espacement compact entre puces */
+            gap: 0.3rem;
         }
 
 .project-body ul li {
-    font-size: 0.8rem;    /* plus petit que le contexte (0.88rem) */
-    color: #7da8d4;       /* bleu-gris doux, moins blanc que --text */
+    font-size: 0.8rem;
+    color: #96b3cf;
     line-height: 1.45;
     padding-left: 0.2rem;
 }
@@ -494,9 +479,7 @@
             font-family: 'DM Mono', monospace;
         }
 
-        /* ============================
-           TIMELINE
-        ============================ */
+        /* TIMELINE */
         .timeline {
             position: relative;
             padding-left: 2rem;
@@ -550,7 +533,7 @@
             color: var(--text-muted);
         }
 
-        /* CV buttons */
+        /* CV BOUTTON */
         .cv-buttons {
             display: flex;
             flex-wrap: wrap;
@@ -594,9 +577,7 @@
             box-shadow: 0 6px 20px rgba(167, 139, 250, 0.2);
         }
 
-        /* ============================
-           FOOTER
-        ============================ */
+        /* FOOTER */
         footer {
             position: relative;
             z-index: 1;
@@ -669,9 +650,8 @@
             opacity: 0.6;
         }
 
-        /* ============================
-           RESPONSIVE
-        ============================ */
+        /* RESPONSIVE */
+        
         @media (max-width: 768px) {
             nav { gap: 1rem 1.5rem; padding: 0.75rem 1rem; }
             nav a { font-size: 0.72rem; }
@@ -697,7 +677,7 @@
 </head>
 <body>
 
-<!-- ===================== NAV ===================== -->
+<!-- NAVIGATION -->
 <nav>
     <a href="#accueil">Accueil</a>
     <a href="#a-propos">À propos</a>
@@ -707,7 +687,7 @@
     <a href="#contact">Contact</a>
 </nav>
 
-<!-- ===================== HEADER ===================== -->
+<!-- HEADER -->
 <header id="accueil">
     <img src="images/photo_nayas.jpg" alt="Photo de Nayas" class="profile-img">
     <h1>Nayas AHAMEDSAH</h1>
@@ -716,7 +696,7 @@
     <a href="#contact" class="btn-contact">Me contacter</a>
 </header>
 
-<!-- ===================== À PROPOS ===================== -->
+<!-- À PROPOS -->
 <section id="a-propos">
     <h2>À propos de moi</h2>
     <div class="grid-about">
@@ -739,7 +719,7 @@
     </div>
 </section>
 
-<!-- ===================== COMPÉTENCES ===================== -->
+<!-- COMPÉTENCES -->
 <section id="competences">
     <h2>Compétences</h2>
     <div class="grid-skills">
@@ -844,7 +824,7 @@
     </div>
 </section>
 
-<!-- ===================== PROJETS ===================== -->
+<!-- PROJETS -->
 <section id="projets">
     <h2>Projets Universitaires</h2>
     <div class="grid-projects">
@@ -920,7 +900,7 @@
     </div>
 </section>
 
-<!-- ===================== PARCOURS ===================== -->
+<!-- PARCOURS -->
 <section id="cv">
     <h2>Parcours</h2>
 
@@ -962,7 +942,7 @@
     </div>
 </section>
 
-<!-- ===================== FOOTER / CONTACT ===================== -->
+<!-- FOOTER / CONTACT -->
 <footer id="contact">
     <h2>Collaborer ensemble ?</h2>
     <p>À la recherche d'une alternance en développement web<br>pour une alternance en Île-de-France</p>
