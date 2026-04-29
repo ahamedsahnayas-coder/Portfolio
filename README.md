@@ -1,13 +1,11 @@
 # 🌐 Portfolio — Nayas AHAMEDSAH
 
-Portfolio personnel développé en HTML5 et CSS3 pure, sans framework ni JavaScript.  
+Portfolio personnel développé en HTML5 et CSS3 pure.  
 Conçu pour présenter mon profil, mes compétences et mes projets universitaires dans le cadre de ma recherche d'alternance.
-
-
-## 🔗 Aperçu
 
 Site statique — directement consultable via GitHub.
 
+---
 
 ## 📁 Structure du projet
 
@@ -20,6 +18,7 @@ portfolio/
     └── CV_Nayas.pdf    # CV téléchargeable
 ```
 
+---
 
 ## 📌 Sections
 
@@ -30,6 +29,7 @@ portfolio/
 - **Parcours** — Timeline de formation et expériences
 - **Contact** — Accès au CV, GitHub, LinkedIn et formulaire mail
 
+---
 
 ## 🛠️ Technologies utilisées
 
@@ -39,8 +39,7 @@ portfolio/
 | Google Fonts | DM Sans + DM Mono |
 | Font Awesome 6 | Icônes |
 
-Aucune dépendance externe, aucun framework — 100 % natif.
-
+---
 
 ## ✨ Points notables
 
@@ -50,6 +49,7 @@ Aucune dépendance externe, aucun framework — 100 % natif.
 - Badges de compétences, timeline de parcours et cartes de projets animées au hover
 - Liens directs vers CV PDF, GitHub et LinkedIn
 
+---
 
 ## 🚀 Lancer le projet
 
