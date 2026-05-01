@@ -51,16 +51,21 @@ portfolio/
 
 ---
 
-## 🚀 Lancer le projet
+## 🚀 Consulter mon Portfolio
 
-Aucune installation requise.
+Mon projet est hébergé en ligne pour une consultation immédiate :  
+👉 **[Cliquez ici pour voir mon site sur GitHub Pages](https://ahamedsahnayas-coder.github.io/portfolio/)**
 
+Ou bien via le terminal (bash) :
 ```bash
-# Cloner le dépôt
+# 1. Cloner le dépôt
 git clone https://github.com/ahamedsahnayas-coder/portfolio.git
 
-# Ouvrir dans le navigateur
-open index.html
+# 2. Entrer dans le dossier
+cd portfolio
+
+# 3. Ouvrir le fichier index.html selon votre système :
+# Windows : start index.html | Mac : open index.html | Linux : xdg-open index.html
 ```
 
 ---
