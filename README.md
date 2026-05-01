@@ -54,7 +54,7 @@ portfolio/
 ## 🚀 Consulter mon Portfolio
 
 Mon projet est hébergé en ligne pour une consultation immédiate :  
-👉 **[Cliquez ici pour voir mon site sur GitHub Pages](https://ahamedsahnayas-coder.github.io/portfolio/)**
+👉 **[Cliquez ici pour voir mon portfolio](file:///home/nayas/portfolio/index.html)**
 
 Ou bien via le terminal (bash) :
 ```bash
