@@ -54,7 +54,7 @@ portfolio/
 ## 🚀 Consulter mon Portfolio
 
 Mon projet est hébergé en ligne pour une consultation immédiate :  
-👉 [https://ahamedsahnayas-coder.github.io/portfolio/](https://ahamedsahnayas-coder.github.io/portfolio/)
+👉 **[Voir mon portfolio](https://ahamedsahnayas-coder.github.io/Portfolio/)**
 
 Ou bien via le terminal (bash) :
 ```bash
