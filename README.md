@@ -76,4 +76,4 @@ En recherche d'alternance pour septembre 2026 (BUT2 & BUT3) en Île-de-France
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-nayas--ahamedsah-blue?logo=linkedin)](https://www.linkedin.com/in/nayas-ahamedsah-66061b3a7/)
 ---
 
-*© 2026 — Nayas AHAMEDSAH*
+2026 — Nayas AHAMEDSAH*
