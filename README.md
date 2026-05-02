@@ -58,13 +58,10 @@ Mon projet est hébergé en ligne pour une consultation immédiate :
 
 Ou bien via le terminal (bash) :
 ```bash
-# 1. Cloner le dépôt
 git clone https://github.com/ahamedsahnayas-coder/portfolio.git
 
-# 2. Entrer dans le dossier
 cd portfolio
 
-# 3. Ouvrir le fichier index.html selon votre système :
 # Windows : start index.html | Mac : open index.html | Linux : xdg-open index.html
 ```
 
